@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <h1>DAW klasea</h2>
+    <h3>Formularioak eta Java Script</h5>
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="row-container">
+                    <div class="form-column" style="background-color: rgb(168, 159, 159); border: 1px solid black;">
+
+                        <form>
+                            <label for="gender" style="display: inline-block;">Zuzentzeko era</label>
+                            <input onclick="cambiarfoto()" type="radio" id="jauna" name="gender" value="jauna">
+                            <label for="jauna" style="display: inline-block;">Jauna</label>
+                            <input onclick="cambiarfoto()" type="radio" id="anderea" name="gender" value="anderea">
+                            <label for="anderea" style="display: inline-block;">Anderea</label>
+                        </form><br>
+
+                        <form>
+                            <label for="izena">Izena</label>
+                            <input type="text" id="izena" name="izena"><br><br>
+
+                            <label for="abizena">Abizena</label>
+                            <input type="text" id="abizena" name="abizena"><br><br>
+
+                            <label for="helbidea">Helbidea</label>
+                            <input type="text" id="helbidea" name="helbidea"><br><br>
+                        </form>
+                        <br>
+                        <form action="#">
+                            <label for="hiria">Hiria:</label>
+                            <select name="hiria" id="hiria">
+                                <option value="Eibar">Eibar</option>
+                                <option value="Ermua">Ermua</option>
+                                <option value="Durango">Mutriku</option>
+                            </select>
+                        </form>
+                        <br>
+                        <form>
+                            <label for="Gustokoena">Gustokoena:</label>
+                            <input type="radio" id="liburuak" name="Gustokoena" value="liburuak">
+                            <label for="liburuak" style="display: inline-block;">Liburuak</label>
+                            <input type="radio" id="pelikulak" name="Gustokoena" value="pelikulak">
+                            <label for="pelikulak">Pelikulak</label>
+                        </form>
+
+                        <br>
+                        <div style="text-align: center;">
+                            <button type="button" onclick="mostrarDatos()">Bidali</button>
+                            <input type="button" value="Ezeztatu" onclick="borrar()"><br>
+                        </div>
+
+                    </div>
+
+                    <div class="image-column">
+                        <div class="row">
+                            <div style="margin-left: 15px;">
+                                <img id="imagenGenero" src="img/caraHombre.jpg"
+                                    style="background-color: rgb(168, 159, 159); border: 1px solid black;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div                                 style="background-color: rgb(168, 159, 159); border: 1px solid black">
+                                <h4>Sartu dituzun datuak</h4>
+                                <div id="datosformulario"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/formulario.js"></script>
+</body>
+
+</html>
