@@ -31,7 +31,7 @@ console.log(`Edad: ${edad}`);
 estudiante1.saludar();
 estudiante1.listarAsignaturas();
 
-// Función en ES5 para sumar notas -> Convertida a ES6
+// Función en ES5 para sumar notas 
 const calcularPromedio = (...notas) => {
     const suma = notas.reduce((acumulador, nota) => acumulador + nota, 0);
     return suma / notas.length;
