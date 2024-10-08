@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularioa</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <h2 style="color: aliceblue;">Sakatu gezia eta mugitu egingo da!</h2>
+    <button id="vuelta">Vuelta</button>
+    <div id="cohete">
+        <img src="img/rocket.png" alt="">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        const cohete = $("#cohete");
+        let posX = 0;
+        let posY = 0;
+        let keysPressed = {};
+
+        function moveRocket() {
+            cohete.css("left", posX + "px");
+            cohete.css("top", posY + "px");
+        }
+
+        $(document).keydown(function (event) {
+            keysPressed[event.key] = true;
+            updatePosition();
+        });
+
+        $(document).keyup(function (event) {
+            delete keysPressed[event.key];
+        });
+
+        function updatePosition() {
+            if (keysPressed["ArrowLeft"] && keysPressed["ArrowUp"]) {
+                posX -= 70;
+                posY -= 70;
+                cohete.css("transform", "rotate(315deg)");  // Rotar arriba-izquierda
+            } else if (keysPressed["ArrowLeft"] && keysPressed["ArrowDown"]) {
+                posX -= 70;
+                posY += 70;
+                cohete.css("transform", "rotate(225deg)");  // Rotar abajo-izquierda
+            } else if (keysPressed["ArrowRight"] && keysPressed["ArrowUp"]) {
+                posX += 70;
+                posY -= 70;
+                cohete.css("transform", "rotate(45deg)");   // Rotar arriba-derecha
+            } else if (keysPressed["ArrowRight"] && keysPressed["ArrowDown"]) {
+                posX += 70;
+                posY += 70;
+                cohete.css("transform", "rotate(135deg)");  // Rotar abajo-derecha
+            } else if (keysPressed["ArrowLeft"]) {
+                posX -= 100;
+                cohete.css("transform", "rotate(270deg)");  // Rotar izquierda
+            } else if (keysPressed["ArrowRight"]) {
+                posX += 100;
+                cohete.css("transform", "rotate(90deg)");   // Rotar derecha
+            } else if (keysPressed["ArrowUp"]) {
+                posY -= 100;
+                cohete.css("transform", "rotate(0deg)");    // Rotar arriba
+            } else if (keysPressed["ArrowDown"]) {
+                posY += 100;
+                cohete.css("transform", "rotate(180deg)");  // Rotar abajo
+            }
+            cohete.animate({ left: posX + "px", top: posY + "px" }, 500);
+        }
+
+        $("#vuelta").click(function () {
+            posX = 0;
+            posY = 0;
+            cohete.animate({ left: "0", top: "0" }, 1000, function () {
+                cohete.css("transform", "translateX(-50%)");
+            });
+        });
+
+        moveRocket();
+    </script>
+
+</body>
+
+</html>
