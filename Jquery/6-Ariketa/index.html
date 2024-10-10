@@ -71,13 +71,13 @@
         }
 
         $("#vuelta").click(function () {
-            posX = 0;
-            posY = 0;
-            cohete.animate({ left: "0", top: "0" }, 1000, function () {
+            posX = $(window).width() / 2 - cohete.width() / 2; // Center the rocket horizontally
+            posY = 0; // Keep the vertical position at the top
+            cohete.animate({ left: posX + "px", top: posY + "px" }, 1000, function () {
                 cohete.css("transform", "translateX(-50%)");
             });
         });
-
+        
         moveRocket();
     </script>
 
